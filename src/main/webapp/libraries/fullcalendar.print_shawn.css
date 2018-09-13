@@ -1,0 +1,129 @@
+
+/* 週模式,日模式 時間文字顏色 */
+.fc-time span {
+	color: #FFFFFF;
+}
+
+/* 標記事件 時間 */
+.fc-day-grid-event .fc-time {
+	color: #FFFFFF;
+	font-weight: 300;
+}
+
+/* 標記事件 文字 */
+.fc-title {
+	color: #FFFFFF;
+	font-size: 0.9rem;
+/*	font-weight: 400;*/
+}
+
+/* 頂部 年月 區域 */
+.fc-toolbar.fc-header-toolbar {
+	margin: 1rem;	
+}
+
+/* 頂部 年月大標 */
+.fc-left h2 {
+	font-size: 1.5rem;
+}
+
+.fc-center h2::after {
+	content: "年";
+}
+
+/* 標記事件 +more */
+.fc-more {
+	background-color: var(--more);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #FFFFFF !important;
+	padding: 0 5px;
+}
+
+/* +more 點擊開啟視窗 head */
+.fc-unthemed .fc-popover .fc-header {
+	background-color: var(--more);
+}
+
+.fc-unthemed .fc-popover .fc-header .fc-title::after {
+	content: "日";
+}
+
+/* +more 點擊開啟視窗 head X關閉按鈕*/
+.fc-unthemed .fc-popover .fc-header .fc-close {
+	color: #FFFFFF;
+	margin-top: 5px !important;
+}
+
+/* 今日 */
+.fc-unthemed td.fc-today {
+	background-color: #FFFFFF;
+	position: relative;
+}
+
+td.fc-today.fc-day-top {
+/*	background-color: var(--pink) !important;*/
+}
+
+.fc-unthemed td.fc-today span.fc-day-number {
+	color: var(--pink);
+	font-weight: 400;
+}
+
+.fc-unthemed td.fc-today::after {
+	content: "今日";
+	display: block;
+	top: 4px;
+	left: 50%;
+	transform: translateX(-50%);
+	position: absolute;
+	width: 3rem;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 0.9rem;
+	background-color: var(--pink);
+/*	font-weight: 400;*/
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+/* 星期 欄位 */
+.fc-head {
+	background: linear-gradient(0deg, #FF848B 20%, #FFB184 80%); 
+    background: -moz-linear-gradient(0deg, #FF848B 20%, #FFB184 80%); 
+	background: -webkit-linear-gradient(0deg, #FF848B 20%, #FFB184 80%); 
+	background: -o-linear-gradient(0deg, #FF848B 20%, #FFB184 80%); 
+/*	background-color: var(--pink);*/
+}
+
+.fc-day-header {
+	font-weight: 300;
+	padding: 0.25rem 0 !important;
+	border-color: var(--none) !important;
+	color: #FFFFFF;
+}
+
+/* 星期六, 星期日 欄位 */
+.fc-week .fc-sat, .fc-week .fc-sun {
+/*	background-color: var(--light);*/
+}
+
+/* 隱藏所有框線 */
+.fc-unthemed td {
+	border-width: 0;
+}
+
+/* 增加內部框線 */
+.fc-day {
+	border-width: 1px !important;
+}
+
+/*Bootstrap 彈出提示框 (Popovers)*/
+.popover-header {
+	font-weight: 400;
+}
+
+
+

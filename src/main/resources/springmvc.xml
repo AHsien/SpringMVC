@@ -17,11 +17,49 @@
                         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<!-- 配置自訂掃描的包 -->
-	<context:component-scan base-package="tw.org.iii.controller" />
-	
-	<!-- 配置視圖解析器：如何把 controller 方法返回值解析為實際的物理視圖 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<context:component-scan
+		base-package="tw.org.iii.controller,
+					  tw.org.iii." />
+
+	<!-- 配置內部資源視圖解析器：如何把 controller 方法返回值解析為實際的物理視圖 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+
+	<!-- 配置 BeanNameViewResolver 視圖解析器: 使用視圖的名稱來解析視圖 -->
+	<!-- 通過 order 屬性來定義視圖解析器的優先順序，order 值越小優先順序越高 -->
+	<bean
+		class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="100" />
+	</bean>
+	
+	<bean id="helloView" class="tw.org.iii.view.HelloView"></bean>
+
+	<!-- 配置國際化資源文件 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="i18n"></property>
+	</bean>
+
+	<!-- 配置直接轉發的頁面 -->
+	<!-- 可以直接相應轉發的頁面，無需再經過 Handler 的方法 -->
+	<mvc:view-controller path="/success"
+		view-name="success" />
+	
+	<!-- <mvc:default-servlet-handler/> 將在 SpringMVC 上下文中
+		 定義一個 DefaultServletHttpRequestHandler 它會對進入 DispatcherServlet 的請求進行篩查，
+		 如果發現是沒有經過映射的請求，就將該請求交由 WEB 應用服務器默認的 Servlet 處理。
+		 如果不是靜態資源請求，才由 DispatcherServlet 繼續處理。
+		 
+		 一般 WEB 應用服務器默認的 Servlet 名稱都是 default。
+		 若所使用的 WEB 服務器的默認 Servlet 名稱不是 default，
+		 則需要通過default-servlet-name 屬性顯示指定-->
+	<mvc:default-servlet-handler/>
+
+	<!-- 在實際開發中通常都需配置 mvc:annotation-driven 標籤 如果沒有配置 <mvc:annotation-driven> 
+		<mvc:view-controller> 的配置就會造成 視圖解析器 InternalResourceViewResolver 失效 -->
+	<mvc:annotation-driven />
+	
 </beans>

@@ -5,9 +5,9 @@
 	version="3.1">
 
 	<display-name>Archetype Created Web Application</display-name>
-	
-	<!-- 配置 org.springframework.web.filter.HiddenHttpMethodFilter 
-		可以將 POST 請求轉為 DELETE 或 POST 請求-->
+
+	<!-- 配置 org.springframework.web.filter.HiddenHttpMethodFilter 可以將 POST 請求轉為 
+		DELETE 或 PUT 請求 -->
 	<filter>
 		<filter-name>HiddenHttpMethodFilter</filter-name>
 		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
@@ -18,26 +18,24 @@
 	</filter-mapping>
 
 	<!-- 配置 DispatcherServlet -->
+	<!-- <init-param> 配置 DispatcherServlet 的一個初始化參數: 配置 SpringMVC 配置文件的位置和名稱 
+		實際上也可以不通過 contextConfigLocation 來配置SpringMVC 的配置文件， 而使用默認的配置文件： /WEB-INF/<servlet-name>-servlet.xml -->
+	<!-- <load-on-startup> 1)load-on-startup元素标记容器是否在启动的时候就加载这个servlet(实例化并调用其init()方法)。 
+		2)它的值必须是一个整数，表示servlet应该被载入的顺序 2)当值为0或者大于0时，表示容器在应用启动时就加载并初始化这个servlet； 3)当值小于0或者没有指定时，则表示容器在该servlet被选择时才会去加载。 
+		4)正数的值越小，该servlet的优先级越高，应用启动时就越先加载。 5)当值相同时，容器就会自己选择顺序来加载。 -->
+	<!-- <url-pattern>的設定會決定有哪些request要交由DispatcherServlet來處理 若希望所有的request 
+		url都交由DispatcherServlet管理 則url-pattern設為 / -->
 	<servlet>
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-
-		<!-- 配置 DispatcherServlet 的一個初始化參數: 配置 SpringMVC 配置文件的位置和名稱 -->
-		<!-- 實際上也可以不通過 contextConfigLocation 來配置SpringMVC 的配置文件，
-		     而使用默認的配置文件： /WEB-INF/<servlet-name>-servlet.xml -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:springmvc.xml</param-value>
 		</init-param>
-		<!-- 1)load-on-startup元素标记容器是否在启动的时候就加载这个servlet(实例化并调用其init()方 法)。 2)它的值必须是一个整数，表示servlet应该被载入的顺序 
-			2)当值为0或者大于0时，表示容器在应用启动时就加载并初始化这个servlet； 3)当值小于0或者没有指定时，则表示容器在该servlet被选择时才会去加载。 
-			4)正数的值越小，该servlet的优先级越高，应用启动时就越先加载。 5)当值相同时，容器就会自己选择顺序来加载。 -->
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>springDispatcherServlet</servlet-name>
-		<!-- <url-pattern>的設定會決定有哪些request要交由DispatcherServlet來處理 若希望所有的request 
-			url都交由DispatcherServlet管理 則url-pattern設為 / -->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 

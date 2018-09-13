@@ -8,6 +8,48 @@
 </head>
 <body>
 
+	<a href="emps">List All Employees</a>
+	<br/><br/>
+
+	<a href="springmvc/testRedirect">Test Redirect</a>
+	<br/><br/>
+
+	<a href="springmvc/testView">Test View</a>
+	<br/><br/>
+
+	<a href="springmvc/testViewAndViewResolver">Test ViewAndViewResolver</a>
+	<br/><br/>
+
+	<!-- 
+		模擬修改操作
+		1. 原始數據為 1, Tom, 123456, tom@gmail.com, 12
+		2. 密碼不能被修改
+		3. 表單回顯，模擬操作直接在表單填寫對應的屬性值
+	 -->
+	<form action="springmvc/testModelAttribute">
+		<input type="hidden" name="id" value="1"/>
+		UserName : <input type="text" name="userName" value="Tom"/>
+		<br/>
+		Email : <input type="text" name="email" value="tom@gmail.com" />
+		<br/>
+		Age : <input type="text" name="age" value="12" />
+		<br/>
+		<input type="submit" value="Submit" />
+		<br/>
+	</form>
+
+	<a href="springmvc/testSessionAttributes">Test SessionAttributes</a>
+	<br/><br/>
+
+	<a href="springmvc/testMap">Test Map</a>
+	<br/><br/>
+
+	<a href="springmvc/testModelAndView">Test ModelAndView</a>
+	<br/><br/>
+
+	<a href="springmvc/testServletAPI">Test ServletAPI</a>
+	<br/><br/>
+
 	<form action="springmvc/testPojo" method="post">
 		User Name : <input type="text" name="userName" />
 		<br/>
