@@ -26,6 +26,7 @@ import tw.org.iii.entity.User;
 @RequestMapping(value = "springmvc")
 @Controller
 public class SpringMVCTest {
+	
 	private static final String SUCCESS = "success";
 
 	/**
